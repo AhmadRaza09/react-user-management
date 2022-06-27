@@ -2,14 +2,14 @@ import "./App.css";
 import ReactDOM from "react-dom";
 import Header from "./components/Header/Header";
 import Card from "./components/UI/Card/Card";
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import UserList from "./components/UserList/UserList";
 import ContentWrapper from "./components/content/ContentWrapper";
 import AddUserButton from "./components/NewUser/AddUserButton";
 import Modal from "./components/Modal/Modal";
 import UserForm from "./components/NewUser/UserForm";
 
-const users = [
+const DUMMY_USERS = [
   {
     id: "u1",
     name: "Ahmad",
@@ -36,7 +36,15 @@ const users = [
   },
 ];
 
+const usersOperation = (state, action) => {
+  if (action.type === "ADD_User") {
+    return [action.payload, ...state];
+  }
+  console.log(state, action);
+};
+
 function App() {
+  const [users, UsersDispatch] = useReducer(usersOperation, DUMMY_USERS);
   const [modalOpen, setModalOpen] = useState(false);
   const modalOpenHandler = () => {
     setModalOpen((prevState) => {
