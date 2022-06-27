@@ -1,0 +1,39 @@
+.table {
+  background: var(--table-background);
+  width: 98%;
+  margin-inline: auto;
+  border: 2px solid;
+  border-collapse: collapse;
+  color: var(--color);
+  font-style: oblique;
+  letter-spacing: var(--letterspacing);
+}
+
+tr > th,
+td {
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid;
+  padding: 10px;
+}
+
+table th {
+  font-weight: normal;
+}
+
+table tr:hover,
+tr:focus {
+  background: var(--background);
+  color: var(--color-button);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
