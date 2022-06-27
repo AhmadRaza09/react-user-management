@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Card from "../../UI/Card/Card";
-import UserForm from "../NewUser/UserForm";
+import React from "react";
+
 import styles from "./Modal.module.css";
+
 const Modal = (props) => {
   return (
     <React.Fragment>
