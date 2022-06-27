@@ -1,0 +1,8 @@
+.wrapper {
+  height: 80vh;
+  background: var(--background);
+  width: 90vw;
+  margin-inline: auto;
+  margin-top: 3em;
+  border-radius: 12px;
+}

@@ -3,35 +3,70 @@ import styles from "./UserList.module.css";
 import deleteIcon from "./../../assests/icons/delete.png";
 import editIcon from "./../../assests/icons/edit.png";
 
+const users = [
+  {
+    id: "u1",
+    name: "Ahmad",
+    email: "ahmadraza@gmail.com",
+    fatherName: "Muhammad Younas Qadri",
+    designation: "Software Engineer",
+    age: 23,
+  },
+  {
+    id: "u2",
+    name: "Ahmad",
+    email: "ahmadraza@gmail.com",
+    fatherName: "Muhammad Younas Qadri",
+    designation: "Software Engineer",
+    age: 23,
+  },
+  {
+    id: "u3",
+    name: "Ahmad",
+    email: "ahmadraza@gmail.com",
+    fatherName: "Muhammad Younas Qadri",
+    designation: "Software Engineer",
+    age: 23,
+  },
+];
+
 const UserList = (props) => {
+  const userList = users.map((user) => (
+    <tr key={user.id}>
+      <td>{user.name}</td>
+      <td>{user.email}</td>
+      <td>{user.fatherName}</td>
+      <td>{user.designation}</td>
+      <td>{user.age}</td>
+      <td>
+        <button className={styles.button}>
+          <img src={deleteIcon} alt="delete" className={styles.icon} />
+        </button>
+      </td>
+      <td>
+        <button className={styles.button}>
+          <img src={editIcon} alt="edit" className={styles.icon} />
+        </button>
+      </td>
+    </tr>
+  ));
   return (
-    <table className={styles.table}>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>FaterName</th>
-        <th>Designation</th>
-        <th>Age</th>
-        <th colSpan="2">Action</th>
-      </tr>
-      <tr>
-        <td>Ahmad</td>
-        <td>ahmad@gmail.com</td>
-        <td>Muhammad Yonas Qadri</td>
-        <td>Software Engineer</td>
-        <td>22</td>
-        <td>
-          <button className={styles.button}>
-            <img src={deleteIcon} alt="delete" className={styles.icon} />
-          </button>
-        </td>
-        <td>
-          <button className={styles.button}>
-            <img src={editIcon} alt="edit" className={styles.icon} />
-          </button>
-        </td>
-      </tr>
-    </table>
+    <div className={styles.overflow}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Father Name</th>
+            <th>Designation</th>
+            <th>Age</th>
+            <th colSpan="2">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>{userList}</tbody>
+      </table>
+    </div>
   );
 };
 
