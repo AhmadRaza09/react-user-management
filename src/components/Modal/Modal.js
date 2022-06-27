@@ -6,11 +6,7 @@ const Modal = (props) => {
   return (
     <React.Fragment>
       <div className={styles.overlay} onClick={props.onModal}></div>
-      <div className={styles.modal}>
-        <Card>
-          <UserForm />
-        </Card>
-      </div>
+      <div className={styles.modal}>{props.children}</div>
     </React.Fragment>
   );
 };

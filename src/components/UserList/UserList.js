@@ -3,35 +3,8 @@ import styles from "./UserList.module.css";
 import deleteIcon from "./../../assests/icons/delete.png";
 import editIcon from "./../../assests/icons/edit.png";
 
-const users = [
-  {
-    id: "u1",
-    name: "Ahmad",
-    email: "ahmadraza@gmail.com",
-    fatherName: "Muhammad Younas Qadri",
-    designation: "Software Engineer",
-    age: 23,
-  },
-  {
-    id: "u2",
-    name: "Ahmad",
-    email: "ahmadraza@gmail.com",
-    fatherName: "Muhammad Younas Qadri",
-    designation: "Software Engineer",
-    age: 23,
-  },
-  {
-    id: "u3",
-    name: "Ahmad",
-    email: "ahmadraza@gmail.com",
-    fatherName: "Muhammad Younas Qadri",
-    designation: "Software Engineer",
-    age: 23,
-  },
-];
-
 const UserList = (props) => {
-  const userList = users.map((user) => (
+  const userList = props.users.map((user) => (
     <tr key={user.id}>
       <td>{user.name}</td>
       <td>{user.email}</td>
