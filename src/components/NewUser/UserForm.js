@@ -1,19 +1,31 @@
-import Button from "../../UI/Button/Button";
+import Button from "../UI/Button/Button";
 
 import styles from "./UserForm.module.css";
 const UserForm = (props) => {
+  const addUserHandler = (e) => {
+    e.preventDefault();
+    console.log();
+  };
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={addUserHandler}>
       <div>
-        <label>Ahmad:</label>
+        <label>Name:</label>
         <input />
       </div>
       <div>
-        <label>Ahmad:</label>
+        <label>Email:</label>
         <input />
       </div>
       <div>
-        <label>Ahmad:</label>
+        <label>Father Name:</label>
+        <input />
+      </div>
+      <div>
+        <label>Designation:</label>
+        <input />
+      </div>
+      <div>
+        <label>Age:</label>
         <input />
       </div>
       <Button type="submit" value="Add User" />

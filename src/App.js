@@ -1,7 +1,7 @@
 import "./App.css";
 import ReactDOM from "react-dom";
 import Header from "./components/Header/Header";
-import Card from "./UI/Card/Card";
+import Card from "./components/UI/Card/Card";
 import React, { useState } from "react";
 import UserList from "./components/UserList/UserList";
 import ContentWrapper from "./components/content/ContentWrapper";
