@@ -12,7 +12,13 @@ const UserList = (props) => {
       <td>{user.designation}</td>
       <td>{user.age}</td>
       <td>
-        <button className={styles.button}>
+        <button
+          className={styles.button}
+          onClick={props.onDelete.bind(null, {
+            type: "DELETE_USER",
+            id: user.id,
+          })}
+        >
           <img src={deleteIcon} alt="delete" className={styles.icon} />
         </button>
       </td>

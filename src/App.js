@@ -37,10 +37,22 @@ const DUMMY_USERS = [
 ];
 
 const usersOperation = (state, action) => {
-  if (action.type === "ADD_User") {
+  if (action.type === "ADD_USER") {
     return [action.payload, ...state];
   }
-  console.log(state, action);
+  switch (action.type) {
+    case "ADD_USER":
+      return [action.payload, ...state];
+    case "DELETE_USER":
+      const index = state.findIndex((user) => user.id === action.id);
+      console.log(index);
+      const newState = [...state];
+      newState.splice(index, 1);
+      console.log(newState);
+      return newState;
+    default:
+      return DUMMY_USERS;
+  }
 };
 
 function App() {
@@ -57,7 +69,7 @@ function App() {
         ReactDOM.createPortal(
           <Modal onModal={modalOpenHandler}>
             <Card>
-              <UserForm />
+              <UserForm onAdd={UsersDispatch} onModal={modalOpenHandler} />
             </Card>
           </Modal>,
           document.getElementById("modal")
@@ -67,7 +79,7 @@ function App() {
       </Card>
       <ContentWrapper>
         <AddUserButton onModal={modalOpenHandler} />
-        <UserList users={users} />
+        <UserList users={users} onDelete={UsersDispatch} />
       </ContentWrapper>
     </React.Fragment>
   );

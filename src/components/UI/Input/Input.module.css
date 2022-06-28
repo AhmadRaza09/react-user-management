@@ -33,12 +33,6 @@ input:focus {
   border: 2px solid red;
 }
 
-.invalid > input:hover,
-input:focus {
-  border: 2px solid red;
-  outline: none;
-}
-
 .error {
   margin: 0;
   color: red;
