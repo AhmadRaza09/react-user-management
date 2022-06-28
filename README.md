@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### To run project
+### `To run project`
 
 Download the repositories in your local directory. Go to that folder open cmd. Run npm install. Then follow the next steps.
 ### `npm start`
