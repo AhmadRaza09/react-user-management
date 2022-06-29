@@ -43,18 +43,45 @@ const UserForm = (props) => {
 
   const addUserHandler = (e) => {
     e.preventDefault();
-    const newUser = {
-      id: Date.now(),
+    let newUser = {
       name: userName.current.value,
       email: userEmail.current.value,
       fatherName: userFatherName.current.value,
       designation: userDesignation.current.value,
       age: userAge.current.value,
     };
+
+    newUser =
+      props.formType === "EDIT_USER"
+        ? { ...newUser, id: props.editUser.id }
+        : { ...newUser, id: Date.now() };
+
     console.log(newUser);
-    props.onAdd({ type: "ADD_USER", payload: newUser });
+    props.formType === "EDIT_USER"
+      ? props.onAdd({ type: "EDIT_USER", payload: newUser })
+      : props.onAdd({ type: "ADD_USER", payload: newUser });
     props.onModal();
   };
+
+  useEffect(() => {
+    if (props.editUser) {
+      // console.log(props.editUser);
+      userName.current.value = props.editUser.name;
+      userEmail.current.value = props.editUser.email;
+      userFatherName.current.value = props.editUser.fatherName;
+      userDesignation.current.value = props.editUser.designation;
+      userAge.current.value = props.editUser.age;
+      setFormState({
+        name: true,
+        email: true,
+        fatherName: true,
+        designation: true,
+        age: true,
+        isFormValid: true,
+      });
+    }
+    // console.log("edit user", props.editUser);
+  }, []);
 
   useEffect(() => {
     if (formFieldName) {
@@ -216,7 +243,11 @@ const UserForm = (props) => {
         onChange={formTriggerHandler}
       />
 
-      <Button type="submit" value="Add User" disabled={formState.isFormValid} />
+      <Button
+        type="submit"
+        value={props.btnValue}
+        disabled={formState.isFormValid}
+      />
     </form>
   );
 };
