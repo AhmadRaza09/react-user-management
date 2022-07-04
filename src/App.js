@@ -38,9 +38,6 @@ const DUMMY_USERS = [
 
 const usersOperation = (state, action) => {
   let index, newState;
-  if (action.type === "ADD_USER") {
-    return [action.payload, ...state];
-  }
   switch (action.type) {
     case "ADD_USER":
       return [action.payload, ...state];
